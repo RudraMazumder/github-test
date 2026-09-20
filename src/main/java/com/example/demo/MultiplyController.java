@@ -30,7 +30,7 @@ public class MultiplyController {
                     content = @Content(schema = @Schema(implementation = ApiExceptionHandler.ApiError.class))
             )
     })
-    public ResponseEntity<MultiplyResponse> multiply(@RequestBody SumRequest request) {
+    public ResponseEntity<MultiplyResponse> multiply(@RequestBody MultiplyRequest request) {
         if (request == null || request.a() == null || request.b() == null) {
             throw new InvalidSumRequestException("Both 'a' and 'b' are required whole numbers.");
         }

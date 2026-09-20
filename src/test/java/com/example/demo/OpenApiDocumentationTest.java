@@ -36,6 +36,9 @@ class OpenApiDocumentationTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.paths['/api/multiply'].post.summary")
                         .value("Multiply two whole numbers"))
+                .andExpect(jsonPath("$.paths['/api/multiply'].post.requestBody.content"
+                        + "['application/json'].schema.$ref")
+                        .value("#/components/schemas/MultiplyRequest"))
                 .andExpect(jsonPath("$.paths['/api/multiply'].post.responses['200']").exists())
                 .andExpect(jsonPath("$.paths['/api/multiply'].post.responses['400']").exists());
     }
