@@ -26,6 +26,30 @@ Successful responses contain HTTP 200 and:
 
 Missing fields, malformed JSON, non-whole-number values, and sums outside the `long` range return HTTP 400 with a JSON `error` field.
 
+## Multiplication API
+
+Send two whole numbers to receive their product:
+
+```http
+POST /api/multiply
+Content-Type: application/json
+
+{
+  "a": 2,
+  "b": 3
+}
+```
+
+Successful responses contain HTTP 200 and:
+
+```json
+{
+  "product": 6
+}
+```
+
+Missing fields, malformed JSON, non-whole-number values, and products outside the `long` range return HTTP 400 with a JSON `error` field.
+
 ## API documentation
 
 When the application is running, the generated OpenAPI specification is available at:

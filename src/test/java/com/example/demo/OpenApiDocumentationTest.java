@@ -31,6 +31,16 @@ class OpenApiDocumentationTest {
     }
 
     @Test
+    void exposesMultiplyEndpointInOpenApiDocument() throws Exception {
+        mockMvc.perform(get("/v3/api-docs"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.paths['/api/multiply'].post.summary")
+                        .value("Multiply two whole numbers"))
+                .andExpect(jsonPath("$.paths['/api/multiply'].post.responses['200']").exists())
+                .andExpect(jsonPath("$.paths['/api/multiply'].post.responses['400']").exists());
+    }
+
+    @Test
     void servesSwaggerUi() throws Exception {
         mockMvc.perform(get("/swagger-ui/index.html"))
                 .andExpect(status().isOk())
