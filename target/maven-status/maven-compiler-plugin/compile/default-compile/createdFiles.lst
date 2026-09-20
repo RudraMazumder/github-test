@@ -1,1 +1,8 @@
+com\example\demo\ApiExceptionHandler$ApiError.class
 com\example\demo\DemoApplication.class
+com\example\demo\InvalidSumRequestException.class
+com\example\demo\ApiExceptionHandler.class
+com\example\demo\OpenApiConfiguration.class
+com\example\demo\SumRequest.class
+com\example\demo\SumController.class
+com\example\demo\SumResponse.class
